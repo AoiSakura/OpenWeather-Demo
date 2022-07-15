@@ -21,7 +21,7 @@ extension Double {
     }
     
     func speedString() -> String {
-        return String(format: "%.1m/s", self)
+        return String(format: "%.1fm/s", self)
     }
     
     func moonPhaseDescription() -> String? {

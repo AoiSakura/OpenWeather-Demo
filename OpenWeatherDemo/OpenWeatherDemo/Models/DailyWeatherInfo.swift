@@ -11,12 +11,14 @@ class DailyWeatherInfo: NSObject, Decodable {
     var timestamp: TimeInterval // Time of the forecasted data, Unix, UTC
     var sunrise: TimeInterval // Sunrise time, Unix, UTC
     var sunset: TimeInterval // Sunset time, Unix, UTC
+    
     var moonrise: TimeInterval // The time of when the moon rises for this day, Unix, UTC
     var moonset: TimeInterval // The time of when the moon sets for this day, Unix, UTC
     var moonPhase: Double // Moon phase. 0 and 1 are 'new moon', 0.25 is 'first quarter moon', 0.5 is 'full moon' and 0.75 is 'last quarter moon'. The periods in between are called 'waxing crescent', 'waxing gibous', 'waning gibous', and 'waning crescent', respectively.
     
     var temp: Temperature
     var feelsLikeTemp: FeelsLikeTemperature
+    
     var pressure: Double // Atmospheric pressure on the sea level, hPa
     var humidity: Double // Humidity, %
     var dewPoint: Double // Atmospheric temperature (varying according to pressure and humidity) below which water droplets begin to condense and dew can form.

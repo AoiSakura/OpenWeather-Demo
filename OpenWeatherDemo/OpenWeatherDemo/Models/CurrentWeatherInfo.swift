@@ -30,6 +30,7 @@ class CurrentWeatherInfo: NSObject, Decodable {
     
     var temp: Double
     var feelsLikeTemp: Double
+    
     var pressure: Double // Atmospheric pressure on the sea level, hPa
     var humidity: Double // Humidity, %
     var dewPoint: Double // Atmospheric temperature (varying according to pressure and humidity) below which water droplets begin to condense and dew can form.

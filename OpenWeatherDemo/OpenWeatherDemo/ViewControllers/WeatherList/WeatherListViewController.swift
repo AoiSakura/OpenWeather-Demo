@@ -119,7 +119,7 @@ extension WeatherListViewController {
         snapshot.appendItems([locationWeather], toSection: .overview)
         snapshot.appendItems(locationWeather.daily, toSection: .daily)
         
-        dataSource.apply(snapshot)
+        self.dataSource.apply(snapshot)
     }
     
     func createCollectionViewLayout() -> UICollectionViewLayout {
@@ -146,7 +146,7 @@ extension WeatherListViewController {
     }
     
     func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, NSObject>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
+        self.dataSource = UICollectionViewDiffableDataSource<Section, NSObject>(collectionView: self.collectionView, cellProvider: { collectionView, indexPath, item in
             guard let section = Section(rawValue: indexPath.section) else {
                 fatalError("Unknown Section")
             }
@@ -166,7 +166,7 @@ extension WeatherListViewController {
             }
         })
         
-        dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
+        self.dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
             if kind == UICollectionView.elementKindSectionHeader {
                 let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "TextHeader", for: indexPath) as? TextHeaderCollectionReusableView
                 switch Section.init(rawValue: indexPath.section) {
