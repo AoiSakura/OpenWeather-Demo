@@ -21,5 +21,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>When you use this app, it will use your current location to provide you weather infomation for 5 days in history.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>When you use this app, it will use your current location to provide you weather infomation for 5 days in history.</string>
 </dict>
 </plist>
