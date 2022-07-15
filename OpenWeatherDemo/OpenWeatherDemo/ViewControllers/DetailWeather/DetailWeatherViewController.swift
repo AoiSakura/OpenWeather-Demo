@@ -203,7 +203,7 @@ extension DetailWeatherViewController {
                 let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "TextHeader", for: indexPath) as? TextHeaderCollectionReusableView
                 switch Section.init(rawValue: indexPath.section) {
                     case .weather:
-                        headerView?.titleLabel.text = "Current Overview"
+                        headerView?.titleLabel.text = self.dailyWeather?.date.dateString()
                     default:
                         break
                 }
