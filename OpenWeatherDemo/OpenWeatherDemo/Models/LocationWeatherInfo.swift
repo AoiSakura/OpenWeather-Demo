@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LocationWeatherInfo: Decodable {
+class LocationWeatherInfo: NSObject, Decodable {
     var latitude: Double
     var longtitude: Double
     var timezone: String

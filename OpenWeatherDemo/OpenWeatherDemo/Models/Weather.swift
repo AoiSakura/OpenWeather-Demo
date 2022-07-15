@@ -15,7 +15,7 @@ struct Weather: Decodable {
     
     var imageUrl: String {
         get {
-            let imageUrlPattern = "http://openweathermap.org/img/wn/%@.png"
+            let imageUrlPattern = "https://openweathermap.org/img/wn/%@@2x.png"
             return String(format: imageUrlPattern, self.icon)
         }
     }

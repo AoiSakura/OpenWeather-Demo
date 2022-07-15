@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DailyWeatherInfo: Decodable {
+class DailyWeatherInfo: NSObject, Decodable {
     var timestamp: TimeInterval // Time of the forecasted data, Unix, UTC
     var sunrise: TimeInterval // Sunrise time, Unix, UTC
     var sunset: TimeInterval // Sunset time, Unix, UTC
@@ -37,31 +37,6 @@ struct DailyWeatherInfo: Decodable {
     var date: Date {
         get {
             return timestamp.timestampToDate()
-        }
-    }
-    
-    func moonPhaseDescription() -> String? {
-        switch self.moonPhase {
-            case 0, 1:
-                return "New Moon"
-            case 0.25:
-                return "First Quarter Moon"
-            case 0.5:
-                return "Full Moon"
-            case 0.75:
-                return "Last Quarter Moon"
-            default:
-                if self.moonPhase > 0 && self.moonPhase < 0.25 {
-                    return "Waxing Crescent"
-                } else if self.moonPhase > 0.25 && self.moonPhase < 0.5 {
-                    return "Waxing Gibbous"
-                } else if self.moonPhase > 0.5 && self.moonPhase < 0.75 {
-                    return "Waning Gibbous"
-                } else if self.moonPhase > 0.75 && self.moonPhase < 1 {
-                    return "Waning Crescent"
-                } else {
-                    return nil
-                }
         }
     }
     

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CurrentWeatherInfo: Decodable {
+class CurrentWeatherInfo: NSObject, Decodable {
     struct Rain: Decodable {
         var lastHourVolume: Double?
         
