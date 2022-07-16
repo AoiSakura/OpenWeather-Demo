@@ -53,6 +53,15 @@ class WeatherListViewController: UIViewController {
             destinationVC.dailyWeather = dailyWeather
         }
     }
+    
+    func showHud() {
+        self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        self.hud?.isSquare = true
+        self.hud?.removeFromSuperViewOnHide = false
+        self.hud?.label.textColor = .white
+        self.hud?.bezelView.color = UIColor(white: 0, alpha: 0.7)
+        self.hud?.bezelView.layer.cornerRadius = 20
+    }
 }
 
 extension WeatherListViewController {
@@ -74,7 +83,8 @@ extension WeatherListViewController {
     
     @objc func fetchWeatherData() {
         if let location = self.currentLocation, self.hud == nil {
-            self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            self.showHud()
+            
             self.weatherService.getWeatherRequest(for: location) { [weak self] isSuccess, weatherInfo, error in
                 if self?.collectionView.refreshControl?.isRefreshing == true {
                     self?.collectionView.refreshControl?.endRefreshing()
