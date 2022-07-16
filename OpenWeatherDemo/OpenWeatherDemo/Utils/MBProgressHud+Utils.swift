@@ -11,7 +11,6 @@ import MBProgressHUD
 extension MBProgressHUD {
     class func showHud(to view: UIView, message: String?, timeDelay: TimeInterval = 0, animated: Bool, completionBlock: MBProgressHUDCompletionBlock? = nil) -> MBProgressHUD {
         let hud = MBProgressHUD.showAdded(to: view, animated: animated)
-        hud.mode = .customView
         hud.isSquare = true
         hud.removeFromSuperViewOnHide = false
         hud.label.textColor = .white
@@ -31,6 +30,16 @@ extension MBProgressHUD {
             hud.hide(animated: animated, afterDelay: timeDelay)
         }
         
+        return hud
+    }
+    
+    class func showHud(to view: UIView, animated: Bool) -> MBProgressHUD {
+        let hud = MBProgressHUD.showAdded(to: view, animated: animated)
+        hud.isSquare = true
+        hud.removeFromSuperViewOnHide = false
+        hud.label.textColor = .white
+        hud.bezelView.layer.cornerRadius = 20
+        hud.bezelView.color = UIColor(white: 0, alpha: 0.7)
         return hud
     }
 }
